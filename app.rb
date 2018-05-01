@@ -15,6 +15,10 @@ def show_content(title)
 	File.read("profiles/"+title)
 end
 
+def delete_content(title)
+  File.delete("profiles/#{title}")
+end
+
 get '/profiles/new' do
 	erb :new
 end
@@ -41,6 +45,10 @@ put '/profiles/:title' do
 	redirect URI.escape("/profiles/#{params[:title]}")
 end
 
+delete '/profiles/:title/delete' do
+	delete_content(params[:title])
+	redirect "/profiles/new"
+end
 
 
 

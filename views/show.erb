@@ -6,5 +6,9 @@
 <body>
 	<h1><%= @title %></h1>
 	<p><%= @content %></p>
+	<form method="post" action="/profiles/<%=@title %>/delete">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete">
+</form>
 </body>
 </html>
